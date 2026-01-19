@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getallusersfn } from '../../Rudex/Slice/pages/Dashboard/Users/AllUser'
 import { useNavigate } from 'react-router-dom'
 
+
 const Users = () => {
 
     const allUsersState = useSelector((state: RootState) => state.allUsers)
@@ -29,6 +30,8 @@ const Users = () => {
         </div>
         <table className='w-full border'>
             <thead>
+        
+  
                 <th>id</th>
                 <th>name</th>
                 <th>phone</th>
@@ -45,6 +48,7 @@ const Users = () => {
                         <td>{items.phone}</td> 
                         <td>{items.email}</td> 
                         <td>{items.password}</td> 
+                     
                        
                         
                     </tr>

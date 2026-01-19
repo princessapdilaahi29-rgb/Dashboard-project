@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     login: loginSlice.reducer,
     allUsers: getAllUserSlice.reducer,
-    newUser: createUsertSlice.reducer,
+    newUser: createUsertSlice.reducer
   },
 });
 

@@ -3,18 +3,19 @@ import { createBrowserRouter } from "react-router-dom";
 import Loginpage from "./pages/LoginPage";
 import DashRouter from "./pages/Dash-compound/DashRouter";
 import Users from "./pages/DashPages/User";
+import NewUser from "./pages/DashPages/NewUser";
+
 
 // Layout Router
-const Router = () => {
+const RouterLayout = () => {
   return <Outlet />;
 };
 
-export default Router;
-
+export default RouterLayout;
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Router />,
+    element: <RouterLayout />,
     children: [
       {
         index: true,
@@ -24,12 +25,22 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashRouter />,
+    element: <DashRouter />, // ⚠️ DashRouter waa parent
     children: [
       {
-        path: "user", 
-        element: <Users />,
-      },
+        path: "user",  
+        children : [    
+          {
+            index : true,
+            element : <Users />
+          },
+          {
+            path : "new",
+            element : <NewUser />
+          }
+        ]// table use rs
+      }
+      
     ],
   },
 ]);

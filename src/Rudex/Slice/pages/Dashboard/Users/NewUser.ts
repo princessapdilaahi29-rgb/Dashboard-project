@@ -18,7 +18,7 @@ export const createUserfn = createAsyncThunk(
     async (data:any,{rejectWithValue})=>{
         try {
             
-     const res = await axios.post(`${Url} /user/new` ,data)
+     const res = await axios.post(`${Url}/user/new` ,data)
      return res.data
 
 
