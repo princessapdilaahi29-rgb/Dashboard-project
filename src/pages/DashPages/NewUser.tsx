@@ -21,17 +21,18 @@ const NewUser = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleSubmit =(e:React.FormEvent)=>{
-    e.preventDefault();
-  }
-  const date={
-    name,
-    phone,
-    password,
-    email
-  }
+  const handleSubmit = (e : React.FormEvent) => {
+        e.preventDefault()
 
-  dispatch(createUserfn(date))
+        const data = {
+            name,
+            phone,
+            email,
+            password
+        }
+        dispatch(createUserfn(data))
+    }
+    
    
 const Navigate=useNavigate()
 
@@ -45,11 +46,8 @@ if(Usersstate.isSuccess){
      toast.success('User Created Successfully', { id : toastId})
 }
 if(Usersstate.isError){
-     toast.error('Error Creating User', { id : toastId})
+     toast.error( Usersstate.message , { id : toastId})
 }
-   
-
-
     },
 
    [Usersstate]
@@ -63,19 +61,19 @@ if(Usersstate.isError){
             <div className='flex flex-col gap-3 w-[85%] mx-auto mt-3'>
                 <div className='grid gap-1'>
                     <label> Name</label>
-                    <input    type="text" placeholder='enter name here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
+                    <input value={name} onChange={(e) => setName(e.target.value)}   type="text" placeholder='enter name here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
                 </div>
                 <div className='grid gap-1'>
                     <label> Phone </label>
-                    <input  type="text" placeholder='enter phone here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
+                    <input  value={phone} onChange={(e) => setPhone(e.target.value)}type="text" placeholder='enter phone here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
                 </div>
                 <div className='grid gap-1'>
                     <label> password</label>
-                    <input  type="text" placeholder='enter password here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)}  type="text" placeholder='enter password here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
                 </div>
                 <div className='grid gap-1'>
                     <label> email</label>
-                    <input  type="text" placeholder='enter email here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
+                    <input value={email} onChange={(e) => setEmail(e.target.value)}  type="text" placeholder='enter email here'  className='bg-gray-200 py-2 px-3 border rounded-sm' />
                 </div>
                 <button className='mt-4 bg-slate-900 text-white py-2 rounded-sm' type='submit'>Save</button>
             </div>
