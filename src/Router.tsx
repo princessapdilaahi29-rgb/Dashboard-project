@@ -4,6 +4,8 @@ import Loginpage from "./pages/LoginPage";
 import DashRouter from "./pages/Dash-compound/DashRouter";
 import Users from "./pages/DashPages/User";
 import NewUser from "./pages/DashPages/NewUser";
+import GetOneUser from "./pages/DashPages/GetOneUser";
+import ApdateUser from "./pages/DashPages/ApdateUser";
 
 
 // Layout Router
@@ -37,8 +39,20 @@ export const router = createBrowserRouter([
           {
             path : "new",
             element : <NewUser />
+          },
+          {
+            path:"one/:id",
+            element:<GetOneUser/>
+          },
+
+          {
+
+             path : 'Apdate/:id',
+             element : <ApdateUser/>
+     
           }
-        ]// table use rs
+          
+        ]
       }
       
     ],

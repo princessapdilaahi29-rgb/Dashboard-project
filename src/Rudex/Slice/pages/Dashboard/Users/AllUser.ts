@@ -33,9 +33,6 @@ const initialState = {
 }
 
 
-
-
-
 export const getallusersfn = createAsyncThunk(
 
 '/user/all',
